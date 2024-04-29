@@ -1,27 +1,10 @@
 services:
-  demo-database:
+  flowers-database:
     image: postgres:alpine
-    container_name: c322-final-backend
+    container_name: flowers-database
     ports:
-      - "6001:5432"
+      - "6004:5432"
     environment:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: c322-final-backend
-
-  c322-final-backend-service:
-    image: c322-final-backend-service
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: c322-final-backend-service
-    ports:
-      - "6002:8085"
-    environment:
-      - server.port=8085
-      - spring.datasource.url=jdbc:postgresql://demo-database:5432/c322-final-backend
-      - spring.datasource.username=postgres
-      - spring.datasource.password=password
-    restart: "no"
-    depends_on:
-      - c322-final-backend
+      POSTGRES_DB: flowers
