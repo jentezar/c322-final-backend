@@ -39,3 +39,4 @@ jobs:
           docker login --username jentezar --password ${{secrets.ACCESS_TOKEN}} ghcr.io
           docker build -t ghcr.io/jentezar/c322-final-backend:latest --file Dockerfile .  
           docker push ghcr.io/jentezar/c322-final-backend:latest
+          
